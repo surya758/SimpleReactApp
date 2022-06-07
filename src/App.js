@@ -1,26 +1,28 @@
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { useEffect, useState } from "react";
 
 import Header from "./components/Header";
+import axios from "axios";
 import background from "./assets/green-background.png";
 import chessImage from "./assets/chess-image.png";
 import productIcon from "./assets/productIcon.png";
 import profileImage from "./assets/profile-image.png";
 
 const App = () => {
-	const data = [
-		{
-			title: "SEO",
-			detail: "It is a long established fact that a render will be distracted by the",
-		},
-		{
-			title: "BRANDING",
-			detail: "It is a long established fact that a render will be distracted by the",
-		},
-		{
-			title: "LOGO",
-			detail: "It is a long established fact that a render will be distracted by the",
-		},
-	];
+	const [productData, setProductData] = useState([]);
+
+	useEffect(() => {
+		const getProductData = async () => {
+			try {
+				const productData = await axios.get("http://127.0.0.1:3001/");
+				setProductData(productData.data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		getProductData();
+	}, []);
+
 	return (
 		<div className='container'>
 			<Header />
@@ -46,9 +48,9 @@ const App = () => {
 			<div className='product'>
 				<h1>OUR PRODUCTS</h1>
 				<div className='productWrapper'>
-					{data.map((product) => {
+					{productData.map((product) => {
 						return (
-							<div className='productItem'>
+							<div className='productItem' key={product._id}>
 								<img src={productIcon} alt={product.title} />
 								<h2>{product.title}</h2>
 								<p>{product.detail}</p>
