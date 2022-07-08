@@ -38,7 +38,7 @@ const App = () => {
 				<h1>WE HELP YOUR BUSINESS</h1>
 				<p>
 					It is a long established fact that a render will be distracted by <br /> the readable
-					content of a page when looking at
+					content of a page when looking at layout
 				</p>
 				<button onClick={() => {}} className='btn'>
 					LEARN MORE
