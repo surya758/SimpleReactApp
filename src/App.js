@@ -78,7 +78,7 @@ const App = () => {
 					<h2>JOHN DOE</h2>
 					<p>
 						It is a long established fact that a render will be distracted by <br /> the readable
-						content of a page when looking at its layout
+						content of a page when looking at its
 					</p>
 				</div>
 				<BsChevronRight size={30} style={{ marginLeft: "50px" }} />
