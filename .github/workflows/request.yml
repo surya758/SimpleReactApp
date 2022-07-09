@@ -1,0 +1,12 @@
+name: Push request
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push request
+        run: test 6 -gt 5
