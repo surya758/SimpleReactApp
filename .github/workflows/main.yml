@@ -23,7 +23,7 @@ jobs:
           npm run build
 
       - name: stores the build folder as artifacts
-      - uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           path: build
 
